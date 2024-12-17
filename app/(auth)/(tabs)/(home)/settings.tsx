@@ -25,17 +25,17 @@ export default function settings() {
 
   const insets = useSafeAreaInsets();
 
-  const {data: size , isLoading: appSizeLoading } = useQuery({
-    queryKey: ["appSize", appSizeUsage],
-    queryFn: async () => {
-      const app = await appSizeUsage
-
-      const remaining = await FileSystem.getFreeDiskStorageAsync()
-      const total = await FileSystem.getTotalDiskCapacityAsync()
-
-      return {app, remaining, total, used: (total - remaining) / total}
-    }
-  })
+  // const {data: size , isLoading: appSizeLoading } = useQuery({
+  //   queryKey: ["appSize", appSizeUsage],
+  //   queryFn: async () => {
+  //     const app = await appSizeUsage
+  //
+  //     const remaining = await FileSystem.getFreeDiskStorageAsync()
+  //     const total = await FileSystem.getTotalDiskCapacityAsync()
+  //
+  //     return {app, remaining, total, used: (total - remaining) / total}
+  //   }
+  // })
 
   const openQuickConnectAuthCodeInput = () => {
     Alert.prompt(
@@ -127,22 +127,22 @@ export default function settings() {
 
         <View className="flex flex-col space-y-2">
           <Text className="font-bold text-lg mb-2">Storage</Text>
-          <View className="mb-4 space-y-2">
-            {size && <Text>App usage: {bytesToReadable(size.app)}</Text>}
-            <Progress.Bar
-              className="bg-gray-100/10"
-              indeterminate={appSizeLoading}
-              color="#9333ea"
-              width={null}
-              height={10}
-              borderRadius={6}
-              borderWidth={0}
-              progress={size?.used}
-            />
-            {size && (
-              <Text>Available: {bytesToReadable(size.remaining)}, Total: {bytesToReadable(size.total)}</Text>
-            )}
-          </View>
+          {/*<View className="mb-4 space-y-2">*/}
+          {/*  {size && <Text>App usage: {bytesToReadable(size.app)}</Text>}*/}
+          {/*  <Progress.Bar*/}
+          {/*    className="bg-gray-100/10"*/}
+          {/*    indeterminate={appSizeLoading}*/}
+          {/*    color="#9333ea"*/}
+          {/*    width={null}*/}
+          {/*    height={10}*/}
+          {/*    borderRadius={6}*/}
+          {/*    borderWidth={0}*/}
+          {/*    progress={size?.used}*/}
+          {/*  />*/}
+          {/*  {size && (*/}
+          {/*    <Text>Available: {bytesToReadable(size.remaining)}, Total: {bytesToReadable(size.total)}</Text>*/}
+          {/*  )}*/}
+          {/*</View>*/}
           <Button
             color="red"
             onPress={onDeleteClicked}
