@@ -40,6 +40,7 @@ import { SystemBars } from "react-native-edge-to-edge";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "react-native-reanimated";
 import { Toaster } from "sonner-native";
+import "@/augmentations";
 
 SplashScreen.preventAutoHideAsync();
 
